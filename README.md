@@ -64,4 +64,4 @@ button.action = { button in
 - `isLoading` add a UIActivityIndicatorView in place of the image
 - `cornerStyle` affect the corners of the button (`.dynamic`, `.capsule`, `.fixed`...)
 - `cornerRadius` affect the cornerRadius if the `cornerStyle` is set to `.fixed`
-
+- `isTouchEffectEnabled` add an haptic and visual feedback at touch
