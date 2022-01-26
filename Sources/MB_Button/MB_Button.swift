@@ -49,7 +49,7 @@ public class MB_Button : UIButton {
 			
 			configuration?.contentInsets = .init(top: UI.Margins, leading: 1.5*UI.Margins, bottom: UI.Margins, trailing: 1.5*UI.Margins)
 			configuration?.titleAlignment = .center
-			configuration?.imagePlacement = .leading
+			configuration?.imagePlacement = imagePlacement
 			configuration?.imagePadding = UI.Margins
 			configuration?.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { [weak self] incoming in
 				
@@ -125,6 +125,13 @@ public class MB_Button : UIButton {
 		didSet {
 			
 			configuration?.image = image?.withConfiguration(UIImage.SymbolConfiguration(scale: .large))
+		}
+	}
+	public var imagePlacement:NSDirectionalRectEdge = .leading {
+		
+		didSet {
+			
+			updateStyle()
 		}
 	}
 	public var isLoading:Bool = false {
