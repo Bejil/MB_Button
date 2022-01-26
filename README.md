@@ -65,3 +65,5 @@ button.action = { button in
 - `cornerStyle` affect the corners of the button (`.dynamic`, `.capsule`, `.fixed`...)
 - `cornerRadius` affect the cornerRadius if the `cornerStyle` is set to `.fixed`
 - `isTouchEffectEnabled` add an haptic and visual feedback at touch
+
+If you really want more customizations option, you can directly get access to button's `configuration` property.
