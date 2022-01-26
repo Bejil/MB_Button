@@ -13,6 +13,7 @@ public class MB_Button : UIButton {
 		
 		case solid
 		case tinted
+		case gray
 		case bordered
 		case transparent
 	}
@@ -28,6 +29,10 @@ public class MB_Button : UIButton {
 			else if style == .tinted {
 				
 				configuration = .tinted()
+			}
+			else if style == .gray {
+				
+				configuration = .gray()
 			}
 			else if style == .bordered || style == .transparent {
 				
@@ -51,18 +56,26 @@ public class MB_Button : UIButton {
 			configuration?.titleAlignment = .center
 			configuration?.imagePlacement = imagePlacement
 			configuration?.imagePadding = UI.Margins
-			configuration?.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { [weak self] incoming in
+			
+			var titleAttributedString:AttributedString? = nil
+			
+			if let title = title {
 				
-				var outgoing = incoming
-				outgoing.font = self?.titleFont
-				return outgoing
+				titleAttributedString = AttributedString.init(title)
+				titleAttributedString?.font = titleFont
 			}
-			configuration?.subtitleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { [weak self] incoming in
+			
+			configuration?.attributedTitle = titleAttributedString
+			
+			var subtitleAttributedString:AttributedString? = nil
+			
+			if let subtitle = subtitle {
 				
-				var outgoing = incoming
-				outgoing.font = self?.subtitleFont
-				return outgoing
+				subtitleAttributedString = AttributedString.init(subtitle)
+				subtitleAttributedString?.font = subtitleFont
 			}
+			
+			configuration?.attributedSubtitle = subtitleAttributedString
 			
 			addAction(.init(handler: { [weak self] _ in
 				
@@ -96,7 +109,7 @@ public class MB_Button : UIButton {
 		
 		didSet {
 			
-			configuration?.title = title
+			updateStyle()
 		}
 	}
 	public var titleFont:UIFont = .boldSystemFont(ofSize: Fonts.Size.Default+2) {
@@ -110,7 +123,7 @@ public class MB_Button : UIButton {
 		
 		didSet {
 			
-			configuration?.subtitle = subtitle
+			updateStyle()
 		}
 	}
 	public var subtitleFont:UIFont = .systemFont(ofSize: Fonts.Size.Default-1) {
