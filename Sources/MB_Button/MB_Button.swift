@@ -165,6 +165,28 @@ public class MB_Button : UIButton {
 	}()
 	public var action:((MB_Button?)->Void)?
 	
+	convenience init() {
+		
+		self.init(frame: .zero)
+		
+		setUp()
+	}
+	
+	convenience init(_ title:String?, _ action:((MB_Button?)->Void)?) {
+		
+		self.init(frame: .zero)
+		
+		setUp()
+		
+		self.title = title
+		self.action = action
+	}
+	
+	open func setUp() {
+		
+		
+	}
+	
 	private func updateStyle() {
 		
 		style = { style }()

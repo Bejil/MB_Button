@@ -43,6 +43,9 @@ button.action = { button in
 button.isTouchEffectEnabled = true
 ...
 ```
+
+Or you can simply use `init(_ title:String?, _ action:((MB_Button?)->Void)?)` method
+
 ## Events handlers
 `MB_Button` use one to handle button main touch event `.touchUpInside`
 ```swift
@@ -66,4 +69,19 @@ button.action = { button in
 - `cornerRadius` affect the cornerRadius if the `cornerStyle` is set to `.fixed`
 - `isTouchEffectEnabled` add an haptic and visual feedback at touch
 
-If you really want more customizations option, you can directly get access to button's `configuration` property.
+If you want more customizations options, you can directly get access to button's `configuration` property.
+
+## Override
+You can override `MB_Button` and set all of your custom valeurs in the `setUp()` function
+
+```swift
+public class CustomButton : MB_Button {
+	
+	public override func setUp() {
+		
+		super.setUp()
+		
+		...
+	}
+}
+```
