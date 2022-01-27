@@ -69,6 +69,7 @@ button.action = { button in
 - `subtitleFont` affect the font of the subtitle
 - `subtitleColor` affect the color of the subtitle
 - `image` add a contextual image to illustrate the action
+- `imagePadding` defines the padding between the image and the titles
 - `imageSize` defines the size of the image/icon of the button
 - `imagePlacement` affect the position of the image (`.leading`, `.trailing`, `.bottom`, `.top`)
 - `isLoading` add a UIActivityIndicatorView in place of the image

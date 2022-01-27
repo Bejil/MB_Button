@@ -70,7 +70,7 @@ open class MB_Button : UIButton {
 			configuration?.titleAlignment = alignment
 			configuration?.imagePlacement = imagePlacement
 			configuration?.image = image?.withConfiguration(UIImage.SymbolConfiguration(scale: imageSize))
-			configuration?.imagePadding = UI.Margins
+			configuration?.imagePadding = imagePadding
 			
 			var titleAttributedString:AttributedString? = nil
 			
@@ -163,6 +163,16 @@ open class MB_Button : UIButton {
 	 - Note: Default value is `.leading`. Refer to `NSDirectionalRectEdge`
 	 */
 	public var imagePlacement:NSDirectionalRectEdge = .leading {
+		
+		didSet {
+			
+			updateStyle()
+		}
+	}
+	/**
+	 Defines the padding between the image and the titles
+	 */
+	public var imagePadding:CGFloat = UI.Margins {
 		
 		didSet {
 			
