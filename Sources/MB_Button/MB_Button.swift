@@ -66,7 +66,7 @@ open class MB_Button : UIButton {
 				configuration?.background.cornerRadius = cornerRadius
 			}
 			
-			configuration?.contentInsets = .init(top: UI.Margins, leading: 1.5*UI.Margins, bottom: UI.Margins, trailing: 1.5*UI.Margins)
+			configuration?.contentInsets = contentInsets
 			configuration?.titleAlignment = .center
 			configuration?.imagePlacement = imagePlacement
 			configuration?.image = image?.withConfiguration(UIImage.SymbolConfiguration(scale: .large))
@@ -137,6 +137,13 @@ open class MB_Button : UIButton {
 	 - Note: Default value is `.leading`. Refer to `NSDirectionalRectEdge`
 	 */
 	public var imagePlacement:NSDirectionalRectEdge = .leading {
+		
+		didSet {
+			
+			updateStyle()
+		}
+	}
+	public var contentInsets:NSDirectionalEdgeInsets = .init(top: UI.Margins, leading: 1.5*UI.Margins, bottom: UI.Margins, trailing: 1.5*UI.Margins) {
 		
 		didSet {
 			
