@@ -61,6 +61,7 @@ button.action = { button in
 
 - `style` affect the general style of the button (`.solid`, `.tinted`, `.gray`, `.bordered`, `.transparent`)
 - `tintColor` affect the general tint of the button (background or title, subtitle and border color)
+- `titleAlignment` affect the alignment of the first and second lines
 - `title` affect the first line of the button (generally the main action)
 - `titleFont` affect the font of the title
 - `titleColor` affect the color of the title

@@ -67,7 +67,7 @@ open class MB_Button : UIButton {
 			}
 			
 			configuration?.contentInsets = contentInsets
-			configuration?.titleAlignment = .center
+			configuration?.titleAlignment = titleAlignment
 			configuration?.imagePlacement = imagePlacement
 			configuration?.image = image?.withConfiguration(UIImage.SymbolConfiguration(scale: .large))
 			configuration?.imagePadding = UI.Margins
@@ -132,6 +132,16 @@ open class MB_Button : UIButton {
 	 Defines the color of the first line
 	 */
 	public var titleColor:UIColor? {
+		
+		didSet {
+			
+			updateStyle()
+		}
+	}
+	/**
+	 Defines the alignment of the first and second lines
+	 */
+	public var titleAlignment:TitleAlignment = .center {
 		
 		didSet {
 			
