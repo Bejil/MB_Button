@@ -63,8 +63,10 @@ button.action = { button in
 - `tintColor` affect the general tint of the button (background or title, subtitle and border color)
 - `title` affect the first line of the button (generally the main action)
 - `titleFont` affect the font of the title
+- `titleColor` affect the color of the title
 - `subtitle` affect the second line of the button (genrally a precision for the main action)
 - `subtitleFont` affect the font of the subtitle
+- `subtitleColor` affect the color of the subtitle
 - `image` add a contextual image to illustrate the action
 - `imagePlacement` affect the position of the image (`.leading`, `.trailing`, `.bottom`, `.top`)
 - `isLoading` add a UIActivityIndicatorView in place of the image

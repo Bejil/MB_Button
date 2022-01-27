@@ -78,6 +78,7 @@ open class MB_Button : UIButton {
 				
 				titleAttributedString = AttributedString.init(title)
 				titleAttributedString?.font = titleFont
+				titleAttributedString?.foregroundColor = titleColor
 			}
 			
 			configuration?.attributedTitle = titleAttributedString
@@ -88,6 +89,7 @@ open class MB_Button : UIButton {
 				
 				subtitleAttributedString = AttributedString.init(subtitle)
 				subtitleAttributedString?.font = subtitleFont
+				titleAttributedString?.foregroundColor = subtitleColor
 			}
 			
 			configuration?.attributedSubtitle = subtitleAttributedString
@@ -120,6 +122,26 @@ open class MB_Button : UIButton {
 	 Defines the global tint of the button
 	 */
 	public override var tintColor: UIColor! {
+		
+		didSet {
+			
+			updateStyle()
+		}
+	}
+	/**
+	 Defines the color of the first line
+	 */
+	public var titleColor:UIColor? {
+		
+		didSet {
+			
+			updateStyle()
+		}
+	}
+	/**
+	 Defines the color of the second line
+	 */
+	public var subtitleColor:UIColor? {
 		
 		didSet {
 			
