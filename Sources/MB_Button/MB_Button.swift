@@ -7,8 +7,18 @@
 import UIKit
 import SnapKit
 
-public class MB_Button : UIButton {
+open class MB_Button : UIButton {
 	
+	//MARK: - Styles
+	/**
+	 Defines the possible styles of the button
+
+	 - solid: Filled button with tintColor
+	 - tinted: Alpha filled button with tintColor
+	 - gray: Gray background button
+	 - bordered: Button with tintColor borders
+	 - transparent: Button without background and borders
+	 */
 	public enum MB_Button_Style {
 		
 		case solid
@@ -17,7 +27,10 @@ public class MB_Button : UIButton {
 		case bordered
 		case transparent
 	}
-	
+	/**
+	 Defines the current style of the button
+	 - Note: Default value is `.solid`
+	 */
 	public var style:MB_Button_Style = .solid {
 		
 		didSet {
@@ -84,6 +97,11 @@ public class MB_Button : UIButton {
 			}), for: .touchUpInside)
 		}
 	}
+	//MARK: - UI
+	/**
+	 Defines the corner style of the button
+	 - Note: Default value is `.dynamic`. Refer to `UIButton.Configuration.CornerStyle`
+	 */
 	public var cornerStyle:UIButton.Configuration.CornerStyle = .dynamic {
 		
 		didSet {
@@ -91,6 +109,10 @@ public class MB_Button : UIButton {
 			updateStyle()
 		}
 	}
+	/**
+	 Defines the corner radius of the button
+	 - Note: Only when `cornerStyle == .fixed`. Default value is `UI.CornerRadius`
+	 */
 	public var cornerRadius:CGFloat = UI.CornerRadius {
 		
 		didSet {
@@ -98,6 +120,9 @@ public class MB_Button : UIButton {
 			updateStyle()
 		}
 	}
+	/**
+	 Defines the global tint of the button
+	 */
 	public override var tintColor: UIColor! {
 		
 		didSet {
@@ -105,41 +130,10 @@ public class MB_Button : UIButton {
 			updateStyle()
 		}
 	}
-	public var title:String? {
-		
-		didSet {
-			
-			updateStyle()
-		}
-	}
-	public var titleFont:UIFont = .boldSystemFont(ofSize: Fonts.Size.Default+2) {
-		
-		didSet {
-			
-			updateStyle()
-		}
-	}
-	public var subtitle:String? {
-		
-		didSet {
-			
-			updateStyle()
-		}
-	}
-	public var subtitleFont:UIFont = .systemFont(ofSize: Fonts.Size.Default-1) {
-		
-		didSet {
-			
-			updateStyle()
-		}
-	}
-	public var image:UIImage? {
-		
-		didSet {
-			
-			configuration?.image = image?.withConfiguration(UIImage.SymbolConfiguration(scale: .large))
-		}
-	}
+	/**
+	 Defines the placement of the image/icon of the button
+	 - Note: Default value is `.leading`. Refer to `NSDirectionalRectEdge`
+	 */
 	public var imagePlacement:NSDirectionalRectEdge = .leading {
 		
 		didSet {
@@ -147,6 +141,65 @@ public class MB_Button : UIButton {
 			updateStyle()
 		}
 	}
+	//MARK: - Values
+	/**
+	 Defines the first line of the button
+	 */
+	public var title:String? {
+		
+		didSet {
+			
+			updateStyle()
+		}
+	}
+	/**
+	 Defines the second line of the button
+	 */
+	public var subtitle:String? {
+		
+		didSet {
+			
+			updateStyle()
+		}
+	}
+	/**
+	 Defines the image/icon of the button
+	 */
+	public var image:UIImage? {
+		
+		didSet {
+			
+			configuration?.image = image?.withConfiguration(UIImage.SymbolConfiguration(scale: .large))
+		}
+	}
+	//MARK: - Fonts
+	/**
+	 Defines the first line's font of the button
+	 - Note: Default value is `.boldSystemFont(ofSize: Fonts.Size.Default+2)`
+	 */
+	public var titleFont:UIFont = .boldSystemFont(ofSize: Fonts.Size.Default+2) {
+		
+		didSet {
+			
+			updateStyle()
+		}
+	}
+	/**
+	 Defines the second line's font of the button
+	 - Note: Default value is `.systemFont(ofSize: Fonts.Size.Default-1)`
+	 */
+	public var subtitleFont:UIFont = .systemFont(ofSize: Fonts.Size.Default-1) {
+		
+		didSet {
+			
+			updateStyle()
+		}
+	}
+	//MARK: - States
+	/**
+	 Display (or not) an `UIActivityIndicatorView` in place of the image
+	 - Note: Default value is `false`
+	 */
 	public var isLoading:Bool = false {
 		
 		didSet {
@@ -155,7 +208,18 @@ public class MB_Button : UIButton {
 			isUserInteractionEnabled = !isLoading
 		}
 	}
+	/**
+	 Defines if an haptic and visual feedback should be active at touch
+	 - Note: Default value is `true`
+	 */
 	public var isTouchEffectEnabled:Bool = true
+	//MARK: - Events
+	/**
+	 Defines a closure to handle `.touchUpInside` event
+	 */
+	public var action:((MB_Button?)->Void)?
+	
+	//MARK: Private
 	private lazy var effectView:UIView = {
 		
 		let view:UIView = .init()
@@ -163,7 +227,6 @@ public class MB_Button : UIButton {
 		view.isUserInteractionEnabled = false
 		return view
 	}()
-	public var action:((MB_Button?)->Void)?
 	
 	convenience init() {
 		
@@ -185,7 +248,6 @@ public class MB_Button : UIButton {
 	}
 	
 	open func setUp() {
-		
 		
 	}
 	
