@@ -235,10 +235,11 @@ open class MB_Button : UIButton {
 		setUp()
 	}
 	
-	convenience init(withTitle title:String? = nil, subtitle:String? = nil, image:UIImage? = nil, andCompletion action:((MB_Button?)->Void)? = nil) {
+	convenience init(style:MB_Button_Style = .solid, title:String? = nil, subtitle:String? = nil, image:UIImage? = nil, andCompletion action:((MB_Button?)->Void)? = nil) {
 		
 		self.init()
 		
+		self.style = style
 		self.title = title
 		self.subtitle = subtitle
 		self.image = image
