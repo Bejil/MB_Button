@@ -152,7 +152,7 @@ public class MB_Button : UIButton {
 		didSet {
 			
 			configuration?.showsActivityIndicator = isLoading
-			isEnabled = !isLoading
+			isUserInteractionEnabled = !isLoading
 		}
 	}
 	public var isTouchEffectEnabled:Bool = true
@@ -170,16 +170,6 @@ public class MB_Button : UIButton {
 		self.init(frame: .zero)
 		
 		setUp()
-	}
-	
-	convenience init(_ title:String?, _ action:((MB_Button?)->Void)?) {
-		
-		self.init(frame: .zero)
-		
-		setUp()
-		
-		self.title = title
-		self.action = action
 	}
 	
 	open func setUp() {

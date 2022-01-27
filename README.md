@@ -44,8 +44,6 @@ button.isTouchEffectEnabled = true
 ...
 ```
 
-Or you can simply use `init(_ title:String?, _ action:((MB_Button?)->Void)?)` method
-
 ## Events handlers
 `MB_Button` use one to handle button main touch event `.touchUpInside`
 ```swift
