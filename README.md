@@ -70,6 +70,7 @@ button.action = { button in
 - `isLoading` add a UIActivityIndicatorView in place of the image
 - `cornerStyle` affect the corners of the button (`.dynamic`, `.capsule`, `.fixed`...)
 - `cornerRadius` affect the cornerRadius if the `cornerStyle` is set to `.fixed`
+- `contentInsets` affect the insets all around the content of the button
 - `isTouchEffectEnabled` add an haptic and visual feedback at touch
 
 If you want more customizations options, you can directly get access to button's `configuration` property.

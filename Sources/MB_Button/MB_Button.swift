@@ -91,12 +91,6 @@ open class MB_Button : UIButton {
 			}
 			
 			configuration?.attributedSubtitle = subtitleAttributedString
-			
-			addAction(.init(handler: { [weak self] _ in
-				
-				self?.action?(self)
-				
-			}), for: .touchUpInside)
 		}
 	}
 	//MARK: - UI
@@ -143,6 +137,10 @@ open class MB_Button : UIButton {
 			updateStyle()
 		}
 	}
+	/**
+	 Defines the content insets
+	 - Note: Default value is `.init(top: UI.Margins, leading: 1.5*UI.Margins, bottom: UI.Margins, trailing: 1.5*UI.Margins)`. Refer to `NSDirectionalEdgeInsets`
+	 */
 	public var contentInsets:NSDirectionalEdgeInsets = .init(top: UI.Margins, leading: 1.5*UI.Margins, bottom: UI.Margins, trailing: 1.5*UI.Margins) {
 		
 		didSet {
@@ -259,7 +257,11 @@ open class MB_Button : UIButton {
 	
 	open func setUp() {
 		
-		
+		addAction(.init(handler: { [weak self] _ in
+			
+			self?.action?(self)
+			
+		}), for: .touchUpInside)
 	}
 	
 	private func updateStyle() {
