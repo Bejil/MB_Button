@@ -172,6 +172,18 @@ public class MB_Button : UIButton {
 		setUp()
 	}
 	
+	convenience init(withTitle title:String? = nil, subtitle:String? = nil, image:UIImage? = nil, andCompletion action:((MB_Button?)->Void)? = nil) {
+		
+		self.init(frame: .zero)
+		
+		self.title = title
+		self.subtitle = subtitle
+		self.image = image
+		self.action = action
+		
+		setUp()
+	}
+	
 	open func setUp() {
 		
 		
