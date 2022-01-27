@@ -69,6 +69,7 @@ open class MB_Button : UIButton {
 			configuration?.contentInsets = .init(top: UI.Margins, leading: 1.5*UI.Margins, bottom: UI.Margins, trailing: 1.5*UI.Margins)
 			configuration?.titleAlignment = .center
 			configuration?.imagePlacement = imagePlacement
+			configuration?.image = image?.withConfiguration(UIImage.SymbolConfiguration(scale: .large))
 			configuration?.imagePadding = UI.Margins
 			
 			var titleAttributedString:AttributedString? = nil
@@ -170,7 +171,7 @@ open class MB_Button : UIButton {
 		
 		didSet {
 			
-			configuration?.image = image?.withConfiguration(UIImage.SymbolConfiguration(scale: .large))
+			updateStyle()
 		}
 	}
 	//MARK: - Fonts
