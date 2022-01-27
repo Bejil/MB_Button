@@ -206,7 +206,7 @@ open class MB_Button : UIButton {
 	 Defines the first line's font of the button
 	 - Note: Default value is `.boldSystemFont(ofSize: Fonts.Size.Default+2)`
 	 */
-	public var titleFont:UIFont = .boldSystemFont(ofSize: Fonts.Size.Default+2) {
+	public var titleFont:UIFont? = .boldSystemFont(ofSize: Fonts.Size.Default+2) {
 		
 		didSet {
 			
@@ -217,7 +217,7 @@ open class MB_Button : UIButton {
 	 Defines the second line's font of the button
 	 - Note: Default value is `.systemFont(ofSize: Fonts.Size.Default-1)`
 	 */
-	public var subtitleFont:UIFont = .systemFont(ofSize: Fonts.Size.Default-1) {
+	public var subtitleFont:UIFont? = .systemFont(ofSize: Fonts.Size.Default-1) {
 		
 		didSet {
 			
