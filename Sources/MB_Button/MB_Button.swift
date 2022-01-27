@@ -7,26 +7,27 @@
 import UIKit
 import SnapKit
 
+/**
+ Defines the possible styles of the button
+
+ - solid: Filled button with tintColor
+ - tinted: Alpha filled button with tintColor
+ - gray: Gray background button
+ - bordered: Button with tintColor borders
+ - transparent: Button without background and borders
+ */
+public enum MB_Button_Style {
+	
+	case solid
+	case tinted
+	case gray
+	case bordered
+	case transparent
+}
+
 open class MB_Button : UIButton {
 	
 	//MARK: - Styles
-	/**
-	 Defines the possible styles of the button
-
-	 - solid: Filled button with tintColor
-	 - tinted: Alpha filled button with tintColor
-	 - gray: Gray background button
-	 - bordered: Button with tintColor borders
-	 - transparent: Button without background and borders
-	 */
-	public enum MB_Button_Style {
-		
-		case solid
-		case tinted
-		case gray
-		case bordered
-		case transparent
-	}
 	/**
 	 Defines the current style of the button
 	 - Note: Default value is `.solid`
@@ -228,14 +229,14 @@ open class MB_Button : UIButton {
 		return view
 	}()
 	
-	convenience init() {
+	public convenience init() {
 		
 		self.init(frame: .zero)
 		
 		setUp()
 	}
 	
-	convenience init(style:MB_Button_Style = .solid, title:String? = nil, subtitle:String? = nil, image:UIImage? = nil, andCompletion action:((MB_Button?)->Void)? = nil) {
+	public convenience init(style:MB_Button_Style = .solid, title:String? = nil, subtitle:String? = nil, image:UIImage? = nil, andCompletion action:((MB_Button?)->Void)? = nil) {
 		
 		self.init()
 		
