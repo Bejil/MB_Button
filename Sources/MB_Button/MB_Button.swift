@@ -69,7 +69,7 @@ open class MB_Button : UIButton {
 			configuration?.contentInsets = contentInsets
 			configuration?.titleAlignment = alignment
 			configuration?.imagePlacement = imagePlacement
-			configuration?.image = image?.withConfiguration(UIImage.SymbolConfiguration(scale: .large))
+			configuration?.image = image?.withConfiguration(UIImage.SymbolConfiguration(scale: imageSize))
 			configuration?.imagePadding = UI.Margins
 			
 			var titleAttributedString:AttributedString? = nil
@@ -163,6 +163,17 @@ open class MB_Button : UIButton {
 	 - Note: Default value is `.leading`. Refer to `NSDirectionalRectEdge`
 	 */
 	public var imagePlacement:NSDirectionalRectEdge = .leading {
+		
+		didSet {
+			
+			updateStyle()
+		}
+	}
+	/**
+	 Defines the size of the image/icon of the button
+	 - Note: Default value is `.medium`. Refer to `UIImage.SymbolScale`
+	 */
+	public var imageSize:UIImage.SymbolScale = .medium {
 		
 		didSet {
 			
