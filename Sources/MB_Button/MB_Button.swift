@@ -245,6 +245,8 @@ open class MB_Button : UIButton {
 		self.subtitle = subtitle
 		self.image = image
 		self.action = action
+		
+		updateStyle()
 	}
 	
 	open func setUp() {
