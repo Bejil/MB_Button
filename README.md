@@ -46,7 +46,7 @@ button.isTouchEffectEnabled = true
 
 Or you can use it with this simple init method:
 ```swift
-init(withTitle title:String? = nil, subtitle:String? = nil, image:UIImage? = nil, andCompletion action:((MB_Button?)->Void)? = nil)
+init(style:MB_Button_Style = .solid, title:String? = nil, subtitle:String? = nil, image:UIImage? = nil, andCompletion action:((MB_Button?)->Void)? = nil)
 ```
 
 ## Events handlers
