@@ -77,6 +77,7 @@ button.action = { button in
 - `cornerRadius` affect the cornerRadius if the `cornerStyle` is set to `.fixed`
 - `contentInsets` affect the insets all around the content of the button
 - `isTouchEffectEnabled` add an haptic and visual feedback at touch
+- `isHiddenIfEmpty` hide button if there is no content to display
 
 If you want more customizations options, you can directly get access to button's `configuration` property.
 

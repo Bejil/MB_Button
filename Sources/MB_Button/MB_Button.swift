@@ -93,6 +93,8 @@ open class MB_Button : UIButton {
 			}
 			
 			configuration?.attributedSubtitle = subtitleAttributedString
+			
+			isHidden = isHiddenIfEmpty && title?.isEmpty ?? true && subtitle?.isEmpty ?? true && image == nil
 		}
 	}
 	//MARK: - UI
@@ -266,6 +268,17 @@ open class MB_Button : UIButton {
 			
 			configuration?.showsActivityIndicator = isLoading
 			isUserInteractionEnabled = !isLoading
+		}
+	}
+	/**
+	 Hide the button if the is no image, title or subtitle
+	 - Note: Default value is `true`
+	 */
+	public var isHiddenIfEmpty:Bool = true {
+		
+		didSet {
+			
+			updateStyle()
 		}
 	}
 	/**
