@@ -260,7 +260,7 @@ open class MB_Button : UIButton {
 	 Display (or not) an `UIActivityIndicatorView` in place of the image
 	 - Note: Default value is `false`
 	 */
-	public var isLoading:Bool = false {
+	open var isLoading:Bool = false {
 		
 		didSet {
 			
