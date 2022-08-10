@@ -36,6 +36,8 @@ open class MB_Button : UIButton {
 		
 		didSet {
 			
+			let oldConfiguration = configuration
+			
 			if style == .solid {
 				
 				configuration = .filled()
@@ -93,6 +95,9 @@ open class MB_Button : UIButton {
 			}
 			
 			configuration?.attributedSubtitle = subtitleAttributedString
+			
+			configuration?.background.image = oldConfiguration?.background.image
+			configuration?.background.imageContentMode = oldConfiguration?.background.imageContentMode ?? .scaleAspectFit
 		}
 	}
 	//MARK: - UI
