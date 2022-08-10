@@ -36,8 +36,6 @@ open class MB_Button : UIButton {
 		
 		didSet {
 			
-			let oldConfiguration = configuration
-			
 			if style == .solid {
 				
 				configuration = .filled()
@@ -53,51 +51,9 @@ open class MB_Button : UIButton {
 			else if style == .bordered || style == .transparent {
 				
 				configuration = .plain()
-				
-				if style == .bordered {
-					
-					configuration?.background.strokeColor = tintColor
-					configuration?.background.strokeWidth = 1
-				}
 			}
 			
-			configuration?.cornerStyle = cornerStyle
-			
-			if cornerStyle == .fixed {
-				
-				configuration?.background.cornerRadius = cornerRadius
-			}
-			
-			configuration?.contentInsets = contentInsets
-			configuration?.titleAlignment = alignment
-			configuration?.imagePlacement = imagePlacement
-			configuration?.image = image?.withConfiguration(UIImage.SymbolConfiguration(scale: imageSize))
-			configuration?.imagePadding = imagePadding
-			
-			var titleAttributedString:AttributedString? = nil
-			
-			if let title = title {
-				
-				titleAttributedString = AttributedString.init(title)
-				titleAttributedString?.font = titleFont
-				titleAttributedString?.foregroundColor = titleColor
-			}
-			
-			configuration?.attributedTitle = titleAttributedString
-			
-			var subtitleAttributedString:AttributedString? = nil
-			
-			if let subtitle = subtitle {
-				
-				subtitleAttributedString = AttributedString.init(subtitle)
-				subtitleAttributedString?.font = subtitleFont
-				titleAttributedString?.foregroundColor = subtitleColor
-			}
-			
-			configuration?.attributedSubtitle = subtitleAttributedString
-			
-			configuration?.background.image = oldConfiguration?.background.image
-			configuration?.background.imageContentMode = oldConfiguration?.background.imageContentMode ?? .scaleAspectFit
+			updateStyle()
 		}
 	}
 	//MARK: - UI
@@ -324,7 +280,46 @@ open class MB_Button : UIButton {
 	
 	private func updateStyle() {
 		
-		style = { style }()
+		if style == .bordered {
+			
+			configuration?.background.strokeColor = tintColor
+			configuration?.background.strokeWidth = 1
+		}
+		
+		configuration?.cornerStyle = cornerStyle
+		
+		if cornerStyle == .fixed {
+			
+			configuration?.background.cornerRadius = cornerRadius
+		}
+		
+		configuration?.contentInsets = contentInsets
+		configuration?.titleAlignment = alignment
+		configuration?.imagePlacement = imagePlacement
+		configuration?.image = image?.withConfiguration(UIImage.SymbolConfiguration(scale: imageSize))
+		configuration?.imagePadding = imagePadding
+		
+		var titleAttributedString:AttributedString? = nil
+		
+		if let title = title {
+			
+			titleAttributedString = AttributedString.init(title)
+			titleAttributedString?.font = titleFont
+			titleAttributedString?.foregroundColor = titleColor
+		}
+		
+		configuration?.attributedTitle = titleAttributedString
+		
+		var subtitleAttributedString:AttributedString? = nil
+		
+		if let subtitle = subtitle {
+			
+			subtitleAttributedString = AttributedString.init(subtitle)
+			subtitleAttributedString?.font = subtitleFont
+			titleAttributedString?.foregroundColor = subtitleColor
+		}
+		
+		configuration?.attributedSubtitle = subtitleAttributedString
 	}
 	
 	public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
