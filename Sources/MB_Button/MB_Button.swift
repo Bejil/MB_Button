@@ -32,7 +32,7 @@ open class MB_Button : UIButton {
 	 Defines the current style of the button
 	 - Note: Default value is `.solid`
 	 */
-	public var style:MB_Button_Style = .solid {
+	open var style:MB_Button_Style = .solid {
 		
 		didSet {
 			
